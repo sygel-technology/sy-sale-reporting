@@ -22,7 +22,7 @@ Configuration
 
 To configure this module, you need to:
 
-#. Anything
+#. Nothing
 
 
 Usage
@@ -30,7 +30,7 @@ Usage
 
 To use this module, you need to:
 
-#. Go to ...
+When printing the sales order report, the dates will not be displayed in 'datetime' format, but only in 'date' format.
 
 
 
