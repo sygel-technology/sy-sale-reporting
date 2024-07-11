@@ -6,16 +6,13 @@
     "summary": "SO Report Hide Lines",
     "version": "15.0.1.0.0",
     "category": "Sale",
-    "website": "https://www.sygel.es",
+    "website": "https://github.com/sygel-technology/sy-sale-reporting",
     "author": "Sygel, Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
     "depends": [
-        'sale',
-    ],   
-    "data": [
-        "views/sale_views.xml",
-        "report/sale_report_templates.xml"
+        "sale",
     ],
+    "data": ["views/sale_views.xml", "report/sale_report_templates.xml"],
 }

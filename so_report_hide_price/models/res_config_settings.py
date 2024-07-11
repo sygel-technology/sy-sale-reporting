@@ -5,9 +5,9 @@ from odoo import fields, models
 
 
 class ResConfigSettings(models.TransientModel):
-    _inherit = 'res.config.settings'
+    _inherit = "res.config.settings"
 
     hide_taxes = fields.Boolean(
         default=False,
-        config_parameter='so_report_hide_price.hide_taxes',
+        config_parameter="so_report_hide_price.hide_taxes",
     )

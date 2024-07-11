@@ -6,7 +6,7 @@
     "summary": "Show/Hide price info in sale portal view",
     "version": "15.0.1.0.0",
     "category": "Sales",
-    "website": "https://www.sygel.es",
+    "website": "https://github.com/sygel-technology/sy-sale-reporting",
     "author": "Sygel",
     "license": "AGPL-3",
     "application": False,
