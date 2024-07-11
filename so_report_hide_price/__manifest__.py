@@ -6,14 +6,12 @@
     "summary": "Show/Hide price info in sale PDF",
     "version": "15.0.1.0.0",
     "category": "Sales",
-    "website": "https://www.sygel.es",
+    "website": "https://github.com/sygel-technology/sy-sale-reporting",
     "author": "Sygel",
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": [
-        'sale'
-    ],
+    "depends": ["sale"],
     "data": [
         "views/sale_views.xml",
         "views/res_config_settings_views.xml",
