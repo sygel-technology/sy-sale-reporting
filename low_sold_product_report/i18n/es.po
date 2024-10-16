@@ -170,6 +170,11 @@ msgid "Last Updated on"
 msgstr ""
 
 #. module: low_sold_product_report
+#: model_terms:ir.ui.view,arch_db:low_sold_product_report.low_sold_product_report_search
+msgid "Low Sales"
+msgstr "Ventas bajas"
+
+#. module: low_sold_product_report
 #: model_terms:ir.ui.view,arch_db:low_sold_product_report.res_config_settings_view_form
 msgid "Low Sales Report"
 msgstr "Informe de procuctos poco vendidos"
@@ -212,6 +217,11 @@ msgstr "Informe de procuctos poco vendidos"
 #: model:ir.model.fields,field_description:low_sold_product_report.field_low_sold_product_report__name
 msgid "Name"
 msgstr "Nombre"
+
+#. module: low_sold_product_report
+#: model_terms:ir.ui.view,arch_db:low_sold_product_report.low_sold_product_report_search
+msgid "No Sales"
+msgstr "Sin ventas"
 
 #. module: low_sold_product_report
 #: model_terms:ir.ui.view,arch_db:low_sold_product_report.low_sold_product_report_wizard_form
