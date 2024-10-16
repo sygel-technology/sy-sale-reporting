@@ -70,7 +70,6 @@ class LowSoldProductReport(models.Model):
     def _select(self):
         template_type = self.env.context.get("product_type") == "product_template"
         select_ = f"""
-            MIN(l.id) AS id,
             {"l.product_id" if not template_type else "0"} as product_id,
             p.product_tmpl_id as product_tmpl_id,
             t.uom_id AS product_uom,
@@ -131,18 +130,58 @@ class LowSoldProductReport(models.Model):
             t.detailed_type
         """
 
+    def _query_zero_products(self):
+        template_type = self.env.context.get("product_type") == "product_template"
+        select = f"""
+            SELECT
+                {"p.id" if not template_type else "0"} as product_id,
+                p.product_tmpl_id as product_tmpl_id,
+                t.uom_id AS product_uom,
+                0 AS product_uom_qty,
+                0 AS price_subtotal,
+                t.categ_id AS categ_id,
+                t.detailed_type AS detailed_type
+            FROM product_product p
+                LEFT JOIN product_template t ON p.product_tmpl_id=t.id
+            WHERE
+                {"p" if not template_type else "t"}.active = TRUE
+                AND t.sale_ok = TRUE
+                AND {"p" if not template_type else "t"}.id NOT IN (
+                    SELECT
+                        {"l.product_id" if not template_type else "p.product_tmpl_id"}
+                    FROM sale_order_line l
+                        LEFT JOIN product_product p ON l.product_id=p.id
+                        LEFT JOIN sale_order s ON s.id=l.order_id
+                        LEFT JOIN res_partner rp ON s.partner_id = rp.id
+                    WHERE {self._where()}
+                    GROUP BY
+                        {"l.product_id" if not template_type else "p.product_tmpl_id"}
+                )
+            GROUP BY {self._group_by().replace("l.product_id,", "p.id,")}
+        """
+        return select
+
     def _query(self):
+        template_type = self.env.context.get("product_type") == "product_template"
         price_subtotal_limit = self.env.context.get("sold_quantity_limit", 0)
         product_uom_qty_limit = self.env.context.get("sold_amount_limit", 0)
         return f"""
-            SELECT * FROM (
-                SELECT {self._select()}
-                FROM {self._from()}
-                WHERE {self._where()}
-                GROUP BY {self._group_by()}
-            ) s
-            WHERE product_uom_qty <= {price_subtotal_limit} OR
-                price_subtotal <= {product_uom_qty_limit}
+            SELECT ROW_NUMBER () OVER (
+                ORDER BY
+                {"p.product_id" if not template_type else "p.product_tmpl_id"}
+            ) as id , *
+            FROM (
+                SELECT * FROM (
+                    SELECT {self._select()}
+                    FROM {self._from()}
+                    WHERE {self._where()}
+                    GROUP BY {self._group_by()}
+                ) s
+                WHERE product_uom_qty <= {price_subtotal_limit} OR
+                    price_subtotal <= {product_uom_qty_limit}
+                UNION
+                {self._query_zero_products()}
+            ) p
         """
 
     @property
