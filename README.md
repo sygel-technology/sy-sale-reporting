@@ -17,7 +17,11 @@ Odoo Sales Reporting
 
 [//]: # (addons)
 
-This part will be replaced when running the oca-gen-addons-table script from OCA/maintainer-tools.
+Available addons
+----------------
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[low_sold_product_report](low_sold_product_report/) | 17.0.1.0.1 |  | Adjustable Report of least sold product
 
 [//]: # (end addons)
 
