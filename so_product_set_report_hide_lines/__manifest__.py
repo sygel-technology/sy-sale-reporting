@@ -11,6 +11,6 @@
     "license": "AGPL-3",
     "application": False,
     "installable": True,
-    "depends": ["so_report_hide_lines"],
+    "depends": ["so_report_hide_lines", "sale_product_set"],
     "data": ["views/product_set.xml", "wizard/product_set_add.xml"],
 }

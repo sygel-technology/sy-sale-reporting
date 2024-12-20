@@ -8,12 +8,9 @@ class SaleOrder(models.Model):
     _inherit = "sale.order"
 
     has_show_price_report_lines = fields.Boolean(
-        string="Has Show Price Report Lines",
         compute="_compute_has_show_price_report_lines",
     )
-    hide_tax_information = fields.Boolean(
-        string="Show Tax Information", compute="_compute_hide_tax_information"
-    )
+    hide_tax_information = fields.Boolean(compute="_compute_hide_tax_information")
 
     def _compute_has_show_price_report_lines(self):
         for sel in self:
