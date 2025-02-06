@@ -21,7 +21,7 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[sale_order_report_hide_discounts_by_partner](sale_order_report_hide_discounts_by_partner/) | 16.0.1.1.0 |  | Sale Order Report Hide Discounts by Partner
+[sale_order_report_hide_discounts_by_partner](sale_order_report_hide_discounts_by_partner/) | 16.0.1.1.1 |  | Sale Order Report Hide Discounts by Partner
 
 [//]: # (end addons)
 
