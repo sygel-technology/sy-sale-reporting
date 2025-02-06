@@ -2,6 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
+from odoo.tools.float_utils import float_is_zero
 
 
 class SaleOrder(models.Model):
@@ -35,7 +36,12 @@ class SaleOrderLine(models.Model):
     def _compute_unit_price_with_discounts(self):
         for sel in self:
             res = 0.0
-            if sel.product_uom_qty != 0:
+            if not float_is_zero(
+                sel.product_uom_qty,
+                precision_digits=self.env["decimal.precision"].precision_get(
+                    "Product Unit of Measure"
+                ),
+            ):
                 if sel.env.user.has_group(
                     "account.group_show_line_subtotals_tax_included"
                 ):
