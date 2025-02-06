@@ -35,10 +35,13 @@ class SaleOrderLine(models.Model):
     def _compute_unit_price_with_discounts(self):
         for sel in self:
             res = 0.0
-            if sel.env.user.has_group("account.group_show_line_subtotals_tax_included"):
-                res = sel.price_total / sel.product_uom_qty
-            elif sel.env.user.has_group(
-                "account.group_show_line_subtotals_tax_excluded"
-            ):
-                res = sel.price_subtotal / sel.product_uom_qty
+            if sel.product_uom_qty != 0:
+                if sel.env.user.has_group(
+                    "account.group_show_line_subtotals_tax_included"
+                ):
+                    res = sel.price_total / sel.product_uom_qty
+                elif sel.env.user.has_group(
+                    "account.group_show_line_subtotals_tax_excluded"
+                ):
+                    res = sel.price_subtotal / sel.product_uom_qty
             sel.sale_price_unit_with_discount = res
