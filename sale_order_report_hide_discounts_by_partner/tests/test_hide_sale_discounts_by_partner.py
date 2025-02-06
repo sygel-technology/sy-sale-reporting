@@ -119,3 +119,7 @@ class TestHideSaleDiscountsByPartner(common.TransactionCase):
             self.so.order_line[0].sale_price_unit_with_discount,
             self.so.order_line[0].price_total / self.so.order_line[0].product_uom_qty,
         )
+
+    def test_product_uom_qty_is_zero(self):
+        self.so.order_line[0].product_uom_qty = 0.00
+        self.assertEqual(self.so.order_line[0].sale_price_unit_with_discount, 0.00)
