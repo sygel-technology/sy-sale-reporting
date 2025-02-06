@@ -3,6 +3,7 @@
 
 from odoo.fields import Command
 from odoo.tests import common, tagged
+from odoo.tools.float_utils import float_is_zero
 
 
 @tagged("post_install", "-at_install")
@@ -122,4 +123,11 @@ class TestHideSaleDiscountsByPartner(common.TransactionCase):
 
     def test_product_uom_qty_is_zero(self):
         self.so.order_line[0].product_uom_qty = 0.00
-        self.assertEqual(self.so.order_line[0].sale_price_unit_with_discount, 0.00)
+        self.assertTrue(
+            float_is_zero(
+                self.so.order_line[0].sale_price_unit_with_discount,
+                precision_digits=self.env["decimal.precision"].precision_get(
+                    "Product Unit of Measure"
+                ),
+            )
+        )
