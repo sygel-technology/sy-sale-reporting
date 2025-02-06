@@ -4,7 +4,7 @@
 {
     "name": "Sale Order Report Hide Discounts by Partner",
     "summary": "Sale Order Report Hide Discounts by Partner",
-    "version": "16.0.1.0.0",
+    "version": "16.0.1.1.0",
     "category": "Sale",
     "website": "https://github.com/sygel-technology/sy-sale-reporting",
     "author": "Sygel, Odoo Community Association (OCA)",
