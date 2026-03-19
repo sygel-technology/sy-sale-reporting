@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+        id="tax_totals_move_discount_before_total_sale"
+        inherit_id="account.document_tax_totals_template"
+    >
+        <xpath expr="//tr[contains(@class, 'o_total')]" position="before">
+            <t t-if="doc and doc._name == 'sale.order' and doc.discount_total">
+                <tr class="border-black">
+                    <td><strong>Total without discount</strong></td>
+                    <td class="text-end">
+                        <span t-field="doc.price_total_no_discount" />
+                    </td>
+                </tr>
+                <tr class="border-black">
+                    <td><strong>Discount</strong></td>
+                    <td class="text-end">
+                        <span t-field="doc.discount_total" />
+                    </td>
+                </tr>
+            </t>
+        </xpath>
+    </template>
+    <template
+        id="disable_old_sale_discount_block"
+        inherit_id="sale_discount_display_amount.sale_discount_display_amount_document"
+    >
+        <xpath
+            expr="//t[@groups='product.group_discount_per_so_line']"
+            position="attributes"
+        >
+            <attribute name="t-if">False</attribute>
+        </xpath>
+    </template>
+</odoo>
