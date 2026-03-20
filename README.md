@@ -16,6 +16,13 @@ Odoo Sales Reporting
 <!-- prettier-ignore-start -->
 
 [//]: # (addons)
+
+Available addons
+----------------
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[sale_botanic_denomination](sale_botanic_denomination/) | 18.0.1.0.0 |  | Adds the botanic denomination to menus and sale report's products
+
 [//]: # (end addons)
 
 <!-- prettier-ignore-end -->
