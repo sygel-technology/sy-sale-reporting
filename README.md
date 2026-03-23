@@ -22,6 +22,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [low_sold_product_report](low_sold_product_report/) | 17.0.1.0.1 |  | Adjustable Report of least sold product
+[sale_order_report_discount_total_reorder](sale_order_report_discount_total_reorder/) | 17.0.1.0.0 |  | Reorders discount totals in Sale order reports.
 
 [//]: # (end addons)
 
