@@ -3,7 +3,7 @@
 {
     "name": "SO Report Hide Salesperson",
     "summary": "Hides the salesperson in the sales reports",
-    "version": "15.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "Sales",
     "website": "https://github.com/sygel-technology/sy-sale-reporting",
     "author": "Sygel",
