@@ -4,16 +4,23 @@
         id="tax_totals_move_discount_before_total_sale"
         inherit_id="account.document_tax_totals_template"
     >
-        <xpath expr="//tr[contains(@class, 'o_total')]" position="before">
+        <xpath
+            expr="//strong[@t-out=&quot;tax_totals['total_amount_currency']&quot;]/../.."
+            position="before"
+        >
             <t t-if="doc and doc._name == 'sale.order' and doc.discount_total">
                 <tr class="border-black">
-                    <td><strong>Total without discount</strong></td>
+                    <td>
+                        <strong>Total without discount</strong>
+                    </td>
                     <td class="text-end">
                         <span t-field="doc.price_total_no_discount" />
                     </td>
                 </tr>
                 <tr class="border-black">
-                    <td><strong>Discount</strong></td>
+                    <td>
+                        <strong>Discount</strong>
+                    </td>
                     <td class="text-end">
                         <span t-field="doc.discount_total" />
                     </td>
@@ -26,7 +33,7 @@
         inherit_id="sale_discount_display_amount.sale_discount_display_amount_document"
     >
         <xpath
-            expr="//t[@groups='product.group_discount_per_so_line']"
+            expr="//t[@groups='sale.group_discount_per_so_line']"
             position="attributes"
         >
             <attribute name="t-if">False</attribute>
