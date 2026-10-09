@@ -22,6 +22,7 @@ Available addons
 addon | version | maintainers | summary
 --- | --- | --- | ---
 [sale_botanic_denomination](sale_botanic_denomination/) | 18.0.1.0.0 |  | Adds the botanic denomination to menus and sale report's products
+[sale_order_report_discount_total_reorder](sale_order_report_discount_total_reorder/) | 18.0.1.0.0 |  | Reorders discount totals in Sale order reports.
 [so_report_hide_salesperson](so_report_hide_salesperson/) | 18.0.1.0.0 |  | Hides the salesperson in the sales reports
 
 [//]: # (end addons)

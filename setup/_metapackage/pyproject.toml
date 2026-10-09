@@ -1,8 +1,9 @@
 [project]
 name = "odoo-addons-sygel-technology-sy-sale-reporting"
-version = "18.0.20260529.0"
+version = "18.0.20261009.0"
 dependencies = [
     "odoo-addon-sale_botanic_denomination==18.0.*",
+    "odoo-addon-sale_order_report_discount_total_reorder==18.0.*",
     "odoo-addon-so_report_hide_salesperson==18.0.*",
 ]
 classifiers=[
